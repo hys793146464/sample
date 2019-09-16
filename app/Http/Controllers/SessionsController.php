@@ -23,11 +23,11 @@ class SessionsController extends Controller
 
        if (Auth::attempt($credentials, $request->has('remember'))) {
            session()->flash('success', '欢迎回来！');
-           session()->save();
+           //session()->save();
            return redirect()->route('users.show', [Auth::user()]);
        } else {
            session()->flash('danger', '很抱歉，您的邮箱和密码不匹配');
-           session()->save();
+           //session()->save();
            return redirect()->back();
        }
     }
@@ -39,8 +39,8 @@ class SessionsController extends Controller
         echo "aabb2<br />";
         session()->flash('success', '您已成功退出！');
         echo "aabb3<br />";
-        session()->save();
-        echo "aabb4<br />";
+        //session()->save();
+        //echo "aabb4<br />";
         return redirect('login');
 
     }
